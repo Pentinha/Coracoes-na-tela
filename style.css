@@ -1,0 +1,86 @@
+:root{
+  --dark-bg: #0b0b0b;
+  --card-bg: rgba(18, 18, 24, 0.95); 
+  --text-color: #f5f5f5;
+  --muted-text: #999;
+  --accent-violet: #c72fff; 
+  --accent-pink: #ff67d4; 
+  --shadow-color: rgba(199, 47, 255, 0.3);
+  --soft-shadow: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #121212 0%, var(--dark-bg) 100%); 
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: var(--text-color);
+  cursor: pointer;
+  user-select: none;
+}
+
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  animation: fadeInCard 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes fadeInCard {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  position: relative;
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 1.125rem;
+  text-align: center;
+  box-shadow: 0 0 1.25rem var(--shadow-color), 0 0.625rem 1.875rem var(--soft-shadow); 
+  border: 1px solid rgba(199, 47, 255, 0.1);
+  backdrop-filter: blur(8px);
+  width: 90%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.card h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--accent-violet), var(--accent-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+span.coracao {
+  position: absolute;
+  font-size: 100px;
+  color: var(--accent-pink);
+  filter: drop-shadow(0 0 10px var(--accent-pink));
+  
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  
+  animation-name: pulseHeart;
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes pulseHeart {
+  from {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.7;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
