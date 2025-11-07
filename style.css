@@ -17,15 +17,10 @@ body {
   color: var(--text-color);
   cursor: pointer;
   user-select: none;
-  
-  /* --- A CORREÇÃO ESTÁ AQUI --- */
-  /* O body agora garante a altura mínima da tela */
   min-height: 100vh;
-  /* FIM DA CORREÇÃO */
 }
 
 .wrap {
-  /* min-height: 100vh; <-- ESTA LINHA FOI REMOVIDA */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,4 +83,92 @@ span.coracao {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
+}
+
+.settings-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 101;
+  background: var(--card-bg);
+  color: var(--accent-pink);
+  border: 1px solid rgba(255,103,212,0.3);
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+.settings-btn:hover {
+  color: white;
+  background: var(--accent-pink);
+}
+
+.settings-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background: var(--card-bg);
+  border-right: 1px solid rgba(199, 47, 255, 0.2);
+  box-shadow: 0 0 20px var(--shadow-color);
+  z-index: 100;
+  padding: 20px;
+  box-sizing: border-box;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.settings-panel.open {
+  transform: translateX(0%);
+}
+
+.settings-panel h2 {
+  margin: 0;
+  padding-top: 50px;
+  text-align: center;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--accent-violet), var(--accent-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.style-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.style-btn {
+  background: #222;
+  color: var(--accent-pink);
+  border: 1px solid rgba(255,103,212,0.3);
+  box-shadow: 0 0 0.625rem rgba(255,255,255,0.1);
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.style-btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+.style-btn.active {
+  background: linear-gradient(135deg, var(--accent-violet), var(--accent-pink)); 
+  color: white;
+  box-shadow: 0 0 0.9375rem rgba(199,47,255,0.6);
+  transform: scale(1.02);
 }
