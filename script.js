@@ -18,12 +18,10 @@ window.onload = function() {
 
   document.onclick = function(evento) {
     
+    // ALTERAÇÃO AQUI:
+    // A mensagem agora é removida imediatamente, sem fade-out.
     if (mensagem) {
-      mensagem.style.transition = "opacity 0.5s";
-      mensagem.style.opacity = "0";
-      setTimeout(() => {
-        mensagem.remove();
-      }, 500);
+      mensagem.remove();
       mensagem = null; 
     }
 
