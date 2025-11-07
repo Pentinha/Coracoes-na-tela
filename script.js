@@ -18,10 +18,14 @@ window.onload = function() {
 
   document.onclick = function(evento) {
     
+    // --- A CORREÇÃO ESTÁ AQUI ---
+    // Em vez de .remove(), usamos .style.display = 'none'.
+    // Isso esconde a mensagem, mas mantém o body 100% esticado.
     if (mensagem) {
-      mensagem.remove();
+      mensagem.style.display = 'none';
       mensagem = null; 
     }
+    // --- FIM DA CORREÇÃO ---
 
     var novoCoracao = new Coracao(evento.clientX, evento.clientY);
     tela.appendChild(novoCoracao.elemento);
