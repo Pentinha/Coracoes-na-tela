@@ -17,10 +17,15 @@ body {
   color: var(--text-color);
   cursor: pointer;
   user-select: none;
+  
+  /* --- A CORREÇÃO ESTÁ AQUI --- */
+  /* O body agora garante a altura mínima da tela */
+  min-height: 100vh;
+  /* FIM DA CORREÇÃO */
 }
 
 .wrap {
-  min-height: 100vh;
+  /* min-height: 100vh; <-- ESTA LINHA FOI REMOVIDA */
   display: flex;
   align-items: center;
   justify-content: center;
