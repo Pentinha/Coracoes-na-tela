@@ -18,8 +18,6 @@ window.onload = function() {
 
   document.onclick = function(evento) {
     
-    // ALTERAÇÃO AQUI:
-    // A mensagem agora é removida imediatamente, sem fade-out.
     if (mensagem) {
       mensagem.remove();
       mensagem = null; 
