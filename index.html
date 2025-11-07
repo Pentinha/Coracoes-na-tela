@@ -1,87 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8">
-    <title>Corações na Tela</title>
-    <style type="text/css" media="screen">
-      * {
-        overflow: hidden;
-        font-family: "Helvetica Neue";
-        cursor: pointer;
-        user-select: none;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>💕 Corações por Todo Lado 💕</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="tela">
 
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-      }
+  <div class="wrap" id="mensagem-inicial">
+    <div class="card">
+      <h1>Clique e veja o que acontece</h1>
+    </div>
+  </div>
 
-      #mensagem-inicial {
-        color: #555;
-        font-size: 2.5em;
-        font-weight: 300;
-      }
-
-      @-webkit-keyframes redimensionar {
-        0% {
-          font-size: 0px;
-          color: black;
-        }
-        100% {
-          font-size: 100px;
-          color: red;
-        }
-      }
-
-      span.coracao {
-        position: absolute;
-        height: 200px;
-        width: 200px;
-        text-align: center;
-        color: red;
-        -webkit-animation-name: redimensionar;
-        -webkit-animation-duration: 0.6s;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-direction: alternate;
-        -webkit-animation-timing-function: ease-in-out;
-      }
-    </style>
-    <script type="text/javascript" charset="utf-8">
-      var Coracao = function(x, y) {
-        this.inicializar(x, y);
-      };
-      
-      Coracao.prototype = {
-        inicializar: function(x, y) {
-          this.elemento = document.createElement("span");
-          this.elemento.className = "coracao";
-          this.elemento.style.top = y + "px";
-          this.elemento.style.left = x + "px";
-          this.elemento.innerText = (Math.random() > 0.5) ? "\u2661" : "\u2665";
-        }
-      };
-
-      window.onload = function() {
-        var tela = document.getElementById("tela");
-        var mensagem = document.getElementById("mensagem-inicial");
-
-        document.onclick = function(evento) {
-          
-          if (mensagem) {
-            mensagem.remove();
-            mensagem = null; 
-          }
-
-          var novoCoracao = new Coracao(evento.clientX, evento.clientY);
-          tela.appendChild(novoCoracao.elemento);
-        };
-      };
-    </script>
-  </head>
-  <body id="tela">
-    <h1 id="mensagem-inicial">Clique e veja o que acontece</h1>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
