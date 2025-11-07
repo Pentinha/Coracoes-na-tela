@@ -1,4 +1,7 @@
-const heartStyles = ['\u2661', '\u2665']; // ♡ e ♥
+const heartCharOpen = '\u2661'; 
+const heartCharClosed = '\u2665\uFE0E'; 
+
+const heartStyles = [heartCharOpen, heartCharClosed];
 let currentHeartSelection = 'random'; 
 
 var Coracao = function(x, y) {
@@ -12,12 +15,14 @@ Coracao.prototype = {
     this.elemento.style.top = y + "px";
     this.elemento.style.left = x + "px";
     
+    let heartToRender;
     if (currentHeartSelection === 'random') {
       const randomIndex = Math.floor(Math.random() * heartStyles.length);
-      this.elemento.innerText = heartStyles[randomIndex];
+      heartToRender = heartStyles[randomIndex];
     } else {
-      this.elemento.innerText = currentHeartSelection;
+      heartToRender = currentHeartSelection;
     }
+    this.elemento.innerText = heartToRender;
   }
 };
 
@@ -37,7 +42,15 @@ window.onload = function() {
     button.onclick = function(evento) {
       styleButtons.forEach(btn => btn.classList.remove("active"));
       evento.currentTarget.classList.add("active");
-      currentHeartSelection = evento.currentTarget.dataset.heart;
+      
+      const selection = evento.currentTarget.dataset.heart;
+      if (selection === 'random') {
+        currentHeartSelection = 'random';
+      } else if (selection === '♡') {
+        currentHeartSelection = heartCharOpen;
+      } else if (selection === '♥︎') { 
+        currentHeartSelection = heartCharClosed;
+      }
     };
   });
 
